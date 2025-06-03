@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Manu;
+use App\Models\Tabel;
 use App\Models\Review;
 
 class UsersController extends Controller
@@ -12,6 +12,10 @@ class UsersController extends Controller
     public function index()
     {
         $users = Manu::all();
+        return response()->json($users);
+    }
+    public function GetTables(){
+        $users = Tabel::all();
         return response()->json($users);
     }
 

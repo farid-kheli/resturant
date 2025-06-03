@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('manus')) {
-        Schema::create('manus', function (Blueprint $table) {
+        if (!Schema::hasTable('dishes')) {
+        Schema::create('dishes', function (Blueprint $table) {
             $table->id();
             $table->string('dishname');
             $table->string('discription');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('manus');
+        Schema::dropIfExists('dishes');
     }
 };

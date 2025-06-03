@@ -171,4 +171,8 @@ Content-Type: application/json
 
 ## License
 
+<<<<<<< HEAD
 This project is licensed under the MIT License.
+=======
+This project is licensed under the MIT License.
+>>>>>>> ef3e540 (add a order functions and display requests and more)

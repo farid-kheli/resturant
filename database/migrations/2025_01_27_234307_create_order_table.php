@@ -16,15 +16,14 @@ class CreateOrderTable extends Migration
         if (!Schema::hasTable('orders')) {
             Schema::create('orders', function (Blueprint $table) {
                 $table->id();
-                $table->unsignedBigInteger('tabel_id'); // Ensure the column type matches the referenced column
-                $table->unsignedBigInteger('manu_id'); // Ensure the column type matches the referenced column
-                $table->integer('price');
+                $table->unsignedBigInteger('tabel_id'); 
+                $table->unsignedBigInteger('dish_id'); 
                 $table->string('status');
                 $table->string('note')->nullable();
                 $table->string('payment');
                 $table->string('payment_status');
-                $table->foreign('tabel_id')->references('id')->on('tabels')->onDelete('cascade'); // Ensure the referenced table name is correct
-                $table->foreign('manu_id')->references('id')->on('manus')->onDelete('cascade'); // Ensure the referenced table name is correct
+                $table->foreign('tabel_id')->references('id')->on('tabels')->onDelete('cascade'); 
+                $table->foreign('dish_id')->references('id')->on('dishes')->onDelete('cascade'); 
                 $table->timestamps();
             });
         }
