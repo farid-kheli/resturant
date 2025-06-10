@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth:sanctum', 'Staff']], function(){
     Route::put('/Admin/order/{status}/{order}', [OrderController::class, 'changeOrderStatus']);
     Route::delete('/Admin/delete/menu/item/{id}', [AcontsController::class, 'destroyMenu']);
     Route::post('/Admin/create/tabel', [TabelController::class, 'storeTabel']);
+    Route::get('/Admin/get/orders/{status}', [OrderController::class, 'GetOrders']);
     Route::delete('/Admin/delete/tabel/{id}', [TabelController::class, 'deletetabel']);
 });
 

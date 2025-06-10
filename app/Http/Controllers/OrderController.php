@@ -51,4 +51,18 @@ class OrderController extends Controller
 
         return response()->json(['message' => 'Order status updated successfully']);
     }
+    public function GetOrders($status)
+    {
+        if ($status ==='all') {
+            return response()->json(Order::all(), 200);
+        }
+        if (!in_array($status, ['pending', 'preparing', 'ready', 'delivered','expired'])) {
+            return response()->json(['error' => 'Invalid status'], 400);
+        }
+        $orders = Order::where('status', $status)->get();
+        if ($orders->isEmpty()) {
+            return response()->json(['message' => 'No orders found for this status'], 404);
+        }
+        return response()->json($orders, 200);
+    }
 }
